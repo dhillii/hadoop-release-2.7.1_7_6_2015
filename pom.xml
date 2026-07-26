@@ -102,6 +102,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <wagon-ssh.version>1.0</wagon-ssh.version>
     <maven-clover2-plugin.version>3.3.0</maven-clover2-plugin.version>
     <maven-bundle-plugin.version>2.5.0</maven-bundle-plugin.version>
+
+    <sonar.organization>dhillii</sonar.organization>
+    <sonar.projectKey>dhillii_hadoop-release-2.7.1_7_6_2015</sonar.projectKey>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
 
   <modules>
