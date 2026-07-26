@@ -30,10 +30,14 @@ jobs:
       - name: Install protoc
         run: |
           sudo apt-get update
-          sudo apt-get install -y unzip
-          curl -sSL -o /tmp/protoc-2.5.0-linux-x86_64.zip https://github.com/protocolbuffers/protobuf/releases/download/v2.5.0/protoc-2.5.0-linux-x86_64.zip
-          sudo unzip -o /tmp/protoc-2.5.0-linux-x86_64.zip -d /usr/local
-          sudo chmod +x /usr/local/bin/protoc
+          sudo apt-get install -y autoconf automake libtool make g++
+          curl -sSL -o /tmp/protobuf-2.5.0.tar.gz https://github.com/protocolbuffers/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
+          tar -xzf /tmp/protobuf-2.5.0.tar.gz -C /tmp
+          cd /tmp/protobuf-2.5.0
+          ./configure
+          make -j"$(nproc)"
+          sudo make install
+          sudo ldconfig
           protoc --version
 
       - name: Build (Java 8)
